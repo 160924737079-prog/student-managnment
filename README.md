@@ -1,8 +1,8 @@
-🎓 # Student Management & CGPA Dashboard
+🎓 Student Management & CGPA Dashboard
 
-A simple Student Management System built with Python, Streamlit, SQLite, and Pandas.
+A simple and interactive Student Management & CGPA Dashboard built using Python, Streamlit, SQLite, and Pandas.
 
-The application allows you to manage student information, add subject marks, calculate SGPA based on credits, and view overall student performance through an interactive dashboard.
+This project allows users to manage student information, add subject-wise marks, calculate grades and SGPA, and view academic performance through an interactive dashboard.
 
 📌 Features
 👨‍🎓 Add new students
@@ -10,124 +10,117 @@ The application allows you to manage student information, add subject marks, cal
 🗑️ Delete students
 📚 Add subject-wise marks
 🎯 Automatically calculate grades
-📊 Calculate SGPA using subject credits
+🧮 Calculate SGPA based on subject credits
 🗑️ Delete subject marks
+📊 View class average SGPA
+🏆 View highest SGPA
+📉 View lowest SGPA
 📈 View SGPA distribution
-📊 View class average, highest SGPA, and lowest SGPA
-💾 Store all data locally using SQLite
-🖥️ Simple and interactive Streamlit interface
+💾 Store data using SQLite
+🖥️ Interactive Streamlit interface
 🛠️ Technologies Used
-Python – Application development
-Streamlit – Web-based user interface
-SQLite – Database management
-Pandas – Data handling and display
+Technology	Purpose
+🐍 Python	Application development
+🎈 Streamlit	Web interface
+🗄️ SQLite	Database management
+🐼 Pandas	Data processing and display
+
 📂 Project Structure
 student-management-system/
 │
 ├── app.py
 ├── database.py
 ├── calculations.py
+├── requirements.txt
 ├── students.db
 └── README.md
 
-Files Description
+📄 File Description
 File	Description
 app.py	Main Streamlit application
-database.py	SQLite database operations
-calculations.py	Grade and SGPA calculation functions
-students.db	SQLite database file, created automatically
+database.py	Handles SQLite database operations
+calculations.py	Handles grade and SGPA calculations
+requirements.txt	Contains required Python packages
+students.db	SQLite database created automatically
 README.md	Project documentation
+
+Note: students.db is automatically created when the application is run.
+
 ⚙️ Requirements
 
-Make sure Python is installed on your system.
+Before running the project, make sure you have:
 
-Install the required Python packages:
+Python 3.8 or higher
+pip
+VS Code
+A web browser
+
+SQLite comes included with Python.
+
+📦 Installation
+1. Open the Project in VS Code
+
+Open the project folder in VS Code.
+
+2. Open the VS Code Terminal
+
+Go to:
+
+Terminal → New Terminal
+
+3. Create a Virtual Environment
+Windows
+python -m venv venv
+
+
+Activate it:
+
+venv\Scripts\activate
+
+macOS / Linux
+python3 -m venv venv
+
+
+Activate it:
+
+source venv/bin/activate
+
+📥 Install Dependencies
+
+Run:
 
 pip install streamlit pandas
 
 
-SQLite is included with Python, so no separate SQLite installation is normally required.
+Or, if you have a requirements.txt file:
 
-🚀 How to Run
-1. Clone or download the project
+pip install -r requirements.txt
 
-Download the project files to your computer.
+🚀 Run the Application
 
-2. Open the project directory
-cd student-management-system
+In the VS Code terminal, run:
 
-3. Install dependencies
-pip install streamlit pandas
-
-4. Start the application
 streamlit run app.py
 
 
-The application will open in your browser.
+After running the command, Streamlit will start the application.
 
-If it does not open automatically, Streamlit will display a local URL in the terminal.
+You should see something similar to:
 
-🗄️ Database
-
-The application uses SQLite to store data.
-
-Two tables are created automatically:
-
-students
-
-Stores student information.
-
-Column	Type	Description
-id	INTEGER	Unique student ID
-name	TEXT	Student name
-email	TEXT	Student email
-course	TEXT	Student course
-semester	INTEGER	Current semester
-marks
-
-Stores subject-wise academic information.
-
-Column	Type	Description
-id	INTEGER	Unique marks ID
-student_id	INTEGER	Associated student ID
-subject	TEXT	Subject name
-marks	REAL	Marks obtained
-credits	INTEGER	Subject credits
-
-The database is automatically created when the application starts.
-
-🎯 Grading System
-
-The application uses the following grading scale:
-
-Marks	Grade	Grade Point
-90–100	A+	10
-80–89	A	9
-70–79	B+	8
-60–69	B	7
-50–59	C	6
-40–49	D	5
-Below 40	F	0
-🧮 SGPA Calculation
-
-SGPA is calculated using subject credits:
-
-SGPA = Σ(Grade Point × Credits) / Σ(Credits)
+Local URL: http://localhost:8501
 
 
-For example:
-
-Subject	Marks	Grade Point	Credits
-Mathematics	85	9	4
-Programming	92	10	3
-Database	75	8	3
-
-The application calculates the weighted SGPA automatically based on these values.
+Open the URL in your browser.
 
 🖥️ Application Pages
-Dashboard
 
-The dashboard displays:
+The application contains three main sections.
+
+📊 Dashboard
+
+The Dashboard provides an overview of student performance.
+
+It displays:
 
 Total number of students
 Class average SGPA
@@ -135,66 +128,104 @@ Highest SGPA
 Lowest SGPA
 Student performance table
 SGPA distribution chart
-Students
+👨‍🎓 Students
 
-The Students section provides:
+The Students page allows you to manage student records.
 
-Add Student – Add student details
-View Students – Display all students
-Delete Student – Remove a student and their associated marks
-Marks & CGPA
+Add Student
 
-The Marks & CGPA section allows you to:
+You can enter:
+
+Student Name
+Email
+Course
+Semester
+
+Available courses:
+
+BBA
+IT
+BCA
+B.Com
+B.Sc
+MBA
+MCA
+View Students
+
+Displays all registered students in a table.
+
+Delete Student
+
+Allows you to delete a student.
+
+When a student is deleted, their associated marks are also deleted.
+
+📚 Marks & CGPA
+
+The Marks & CGPA page allows you to:
 
 Select a student
-Add subject marks
-Enter subject credits
+Add subjects
+Enter marks
+Enter credits
 View grades
-Calculate current SGPA
+Calculate SGPA
 Delete subject records
-🔐 Data Storage
+🎯 Grading System
 
-All information is stored locally in the students.db SQLite database.
+The application uses the following grading system:
 
-The application uses parameterized SQL queries such as:
+Marks	Grade	Grade Point
+90 – 100	A+	10
+80 – 89	A	9
+70 – 79	B+	8
+60 – 69	B	7
+50 – 59	C	6
+40 – 49	D	5
+0 – 39	F	0
+🧮 SGPA Calculation
 
-cursor.execute(
-    "DELETE FROM marks WHERE id = ?",
-    (mark_id,)
-)
+SGPA is calculated using the credit-weighted grade points.
 
+Formula
+SGPA = Σ(Grade Point × Credits) / Σ(Credits)
 
-This helps prevent SQL injection when working with user-provided values.
+Example
+Subject	Marks	Grade Point	Credits
+Mathematics	85	9	4
+Programming	92	10	3
+Database	75	8	3
 
-📸 Usage Workflow
-Start the Streamlit application.
-Open the Students page.
-Add a student.
-Open Marks & CGPA.
-Select the student.
-Add subjects, marks, and credits.
-View automatically calculated grades and SGPA.
-Open the Dashboard to view overall performance.
-🔮 Future Improvements
+Calculation:
 
-Possible improvements include:
+SGPA = ((9 × 4) + (10 × 3) + (8 × 3)) / (4 + 3 + 3)
 
-✏️ Edit student details through the UI
-✏️ Edit existing marks
-🔎 Search and filter students
-📥 Export student data to Excel/CSV
-📄 Generate student report cards
-🔐 Add login and authentication
-📊 Add course-wise and semester-wise analytics
-📈 Add CGPA calculation across multiple semesters
-📱 Improve mobile responsiveness
-☁️ Deploy the application online
-👨‍💻 Author
+SGPA = 90 / 10
 
-Student Management & CGPA Dashboard
+SGPA = 9.00
 
-Built using Python, Streamlit, SQLite, and Pandas.
+🗄️ Database
 
-📄 License
+The project uses SQLite to store student and marks information.
 
-This project is intended for educational and personal use. You may modify and extend it according to your requirements.
+Students Table
+
+The students table contains:
+
+Column	Type	Description
+id	INTEGER	Unique student ID
+name	TEXT	Student name
+email	TEXT	Student email
+course	TEXT	Student course
+semester	INTEGER	Student semester
+Marks Table
+
+The marks table contains:
+
+Column	Type	Description
+id	INTEGER	Unique marks ID
+student_id	INTEGER	Associated student ID
+subject	TEXT	Subject name
+marks	REAL	Marks obtained
+credits	INTEGER	Subject credits
+Database
